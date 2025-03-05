@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        #container {
+            background: white;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #btn {
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #add {
+            background-color: #28a745;
+            color: white;
+        }
+        #clear {
+            background-color: #dc3545;
+            color: white;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .delete {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .delete:hover {
+            background: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>To-Do List</h1>
+        <input type="text" id="input" placeholder="Enter the list">
+        <div id="btn">
+            <button id="add">Add</button>
+            <button id="clear">Clear</button>
+        </div>
+        <ul id="list"></ul>
+    </div>
+
+    <script>
+        const input = document.getElementById("input");
+        const addBtn = document.getElementById("add");
+        const clearBtn = document.getElementById("clear");
+        const list = document.getElementById("list");
+
+        addBtn.addEventListener("click", addEntries);
+        clearBtn.addEventListener("click", clearList);
+
+        function addEntries() {
+            if (input.value.trim() === "") return; 
+
+            const li = document.createElement("li");
+            li.innerHTML = `${input.value} <button class="delete">X</button>`;
+            
+            list.appendChild(li);
+            input.value = "";
+
+            li.querySelector(".delete").addEventListener("click", () => {
+                li.remove();
+            });
+        }
+
+        function clearList() {
+            list.innerHTML = "";
+        }
+    </script>
+</body>
+</html>
