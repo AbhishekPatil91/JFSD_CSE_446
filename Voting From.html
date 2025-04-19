@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"] {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+        }
+        input[type="submit"] {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background: #218838;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="name">Name:
+            <input type="text" name="name" id="name" placeholder="Enter Your Name" required>
+        </label>
+        <label for="age">Age:
+            <input type="number" name="age" id="age" placeholder="Enter your age" required>
+        </label>
+        <label for="nationality">Nationality:
+            <input type="text" name="nationality" id="nationality" placeholder="Your nationality" required>
+        </label>
+        <input type="submit" value="Submit">
+    </form>
+    <p>The Eligibility: <span id="result"></span></p>
+    <script>
+        var name1 = document.getElementById('name');
+        var age = document.getElementById('age');
+        var nationality = document.getElementById('nationality');
+        const result1 = document.getElementById('result');
+        var form = document.querySelector('form');
+       
+        form.addEventListener('submit', function(event){
+            event.preventDefault();
+            let name2 = name1.value;
+            let age2 = age.value;
+            let nationality2 = nationality.value.toLowerCase();
+       
+            if(age2 >= 18 && nationality2 == 'indian'){
+                alert(name2 + " You are eligible");
+                result1.textContent = name2 + " You are eligible";
+            } else {
+                alert(name2 + " You are not eligible");
+                result1.textContent = name2 + " You are not eligible";
+            }
+            form.reset();
+        });
+    </script>
+</body>
+</html>
