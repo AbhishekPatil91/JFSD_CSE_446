@@ -1,0 +1,144 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444;
+  padding: 40px 20px;
+  overflow-x: hidden;
+}
+
+/* Container with neumorphism style */
+.home-container {
+  text-align: center;
+  background: #e0e5ec;
+  padding: 50px 40px;
+  border-radius: 30px;
+  box-shadow:
+    8px 8px 16px #bec8d2,
+    -8px -8px 16px #ffffff;
+  max-width: 460px;
+  width: 100%;
+  animation: fadeSlideIn 0.7s ease forwards;
+  transition: transform 0.3s ease;
+}
+
+.home-container:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* Heading */
+.qr-header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 35px;
+  font-weight: 800;
+  color: #2a2e43;
+  letter-spacing: 1px;
+}
+
+/* Inputs with neumorphic style */
+.qr-header input,
+.qr-header select {
+  width: 90%;
+  max-width: 350px;
+  padding: 16px 24px;
+  margin: 14px 0;
+  border-radius: 20px;
+  border: none;
+  font-size: 1.15rem;
+  outline: none;
+  color: #2a2e43;
+  background: #e0e5ec;
+  box-shadow:
+    inset 6px 6px 8px #bec8d2,
+    inset -6px -6px 8px #ffffff;
+  transition: box-shadow 0.3s ease;
+}
+
+.qr-header input::placeholder {
+  color: #a1a7b3;
+}
+
+.qr-header input:focus,
+.qr-header select:focus {
+  box-shadow:
+    inset 8px 8px 12px #a4a9b6,
+    inset -8px -8px 12px #f9fbff;
+}
+
+/* Label */
+.size-select {
+  margin-top: 14px;
+  color: #555;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* QR code box with subtle shadow */
+.qr-body {
+  margin: 30px 0;
+  padding: 24px;
+  background: #e0e5ec;
+  border-radius: 25px;
+  box-shadow:
+    8px 8px 16px #bec8d2,
+    -8px -8px 16px #ffffff;
+  display: inline-block;
+}
+
+/* Buttons container */
+.qr-footer {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+/* Buttons neumorphism style */
+.btn {
+  background: #e0e5ec;
+  padding: 14px 36px;
+  font-size: 17px;
+  color: #2a2e43;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow:
+    6px 6px 10px #bec8d2,
+    -6px -6px 10px #ffffff;
+  transition: box-shadow 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  color: #4a90e2;
+  box-shadow:
+    inset 6px 6px 10px #bec8d2,
+    inset -6px -6px 10px #ffffff;
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Animation */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
